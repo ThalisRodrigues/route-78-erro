@@ -49,10 +49,10 @@
 						</div>
 					</li>
 					<li class="nav-item active dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Venda</a>
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pedido</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="index.php?page=cad_venda">Cadastrar</a>
-							<a class="dropdown-item" href="index.php?page=list_venda">Listar</a>
+							<a class="dropdown-item" href="index.php?page=cad_pedido">Cadastrar</a>
+							<a class="dropdown-item" href="index.php?page=list_pedido">Listar</a>
 						</div>
 					</li>
 				</ul>
@@ -91,17 +91,17 @@
 							case "editar_marca":
 								include("editar_marca.php");
 							break;
-							case "cad_venda":
-								include("cadastrar_venda.php");
+							case "cad_pedido":
+								include("cadastrar_pedido.php");
 							break;
-							case "list_venda":
-								include("listar_venda.php");
+							case "list_pedido":
+								include("listar_pedido.php");
 							break;
-							case "salvar_venda":
-								include("salvar_venda.php");
+							case "salvar_pedido":
+								include("salvar_pedido.php");
 							break;
-							case "edit_venda":
-								include("editar_venda.php");
+							case "edit_pedido":
+								include("editar_pedido.php");
 							break;
 							case "cad_cliente":
 								include("cadastrar_cliente.php");
