@@ -1,16 +1,27 @@
 <br>
 <?php
-	$horadata  = @$_REQUEST["horaedata_venda"];
-	$quantprod = @$_REQUEST["quant_prod_venda"];
-	$valreceb  = @$_REQUEST["valorrecebido_venda"];
-	$valtotal  = @$_REQUEST["valortotal_venda"];
-	$fun       = @$_REQUEST["funcionario_cod_fun"];
-	$cli       = @$_REQUEST["cliente_cod_cli"];
-	$bike      = @$_REQUEST["bikes_cod_bike"];
+	$data  = @$_REQUEST["data_pedido"];
+	$hora = @$_REQUEST["hora_pedido"];
+	$subtotal  = @$_REQUEST["subtotal_pedido"];
+	$total  = @$_REQUEST["total_pedido"];
+	$funcionario       = @$_REQUEST["funcionario_codigo_funcionario"];
+	$cliente       = @$_REQUEST["cliente_codigo_cliente"];
+	$produto      = @$_REQUEST["produto_codigo_produto"]; 			
+	
+	
+	
 	
 	switch($_REQUEST["acao"]){
 		case "cadastrar":
-			$sql = "INSERT INTO vendas (horaedata_venda, quant_prod_venda, valorrecebido_venda, valortotal_venda, funcionario_cod_fun, cliente_cod_cli, bikes_cod_bike) VALUES ({$horadata},'{$quantprod}', '{$valreceb}', '{$valtotal}', '{$fun}', '{$cli}', '{$bike}')";
+			$sql = "INSERT INTO pedido (data_pedido, hora_pedido, subtotal_pedido, total_pedido, funcionario_codigo_funcionario, cliente_codigo_cliente)
+			VALUES
+			('{$data}',
+			'{$hora}',
+			'{$subtotal}',
+			'{$total}',
+			'{$funcionario}',
+			'{$cliente}'
+			)";
 			
 			$result = $conn->query($sql);
 			
@@ -21,16 +32,16 @@
 			}
 		break;
 		case "editar":
-			$sql = "UPDATE vendas SET
-						horaedata_venda = '{$horadata}' ,
-						quant_prod_venda = '{$quantprod}',
-						valorrecebido_venda = '{valreceb}$',
-						valortotal_venda = '{$valtotal}',
-						funcionario_cod_fun = '{$fun}',
-						cliente_cod_cli = '{$cli}', 
-						bikes_cod_bike = '{$bike}'
+			$sql = "UPDATE pedido SET
+						data_pedido = '{$data}' ,
+						hora_pedido = '{$hora}',
+						subtotal_pedido = '{$subtotal}',
+						total_pedido = '{$total}',
+						funcionario_codigo_funcionario = '{$funcionario}',
+						cliente_codigo_cliente = '{$cliente}'
+						
 					WHERE
-						cod_venda=".$_REQUEST["cod_venda"];
+						cod_pedido =".$_REQUEST["cod_venda"]; // É cod_venda mesmo, melhor não alterar
 						
 			$result = $conn->query($sql);
 			

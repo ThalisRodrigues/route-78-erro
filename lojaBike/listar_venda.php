@@ -1,6 +1,8 @@
-<h1>Listar Marca</h1>
+<h1>Listar Pedido</h1>
 <?php
-	$sql = "SELECT * FROM vendas";
+
+
+	$sql = "SELECT * FROM pedido";
 	
 	$result = $conn->query($sql);
 	

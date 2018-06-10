@@ -1,20 +1,23 @@
-<h1>Cadastrar Funcionario</h1>
+<h1>Cadastrar Pedido</h1>
+  
+
 <form action="index.php?page=salvar_venda&acao=cadastrar" method="POST">
 	<div class="form-group">
-		<label>Hora e Data</label>
-		<input type="date_time_set" name="horaedata_venda" class="form-control">
+		<label>Data </label>
+		<input type="date" name="data_pedido" class="form-control">
 	</div>
 	<div class="form-group">
-		<label>Quantidade de Produtos</label>
-		<input type="number" name="quant_prod_venda" class="form-control" >
+		<label>Hora </label>
+		<input type="time" name="hora_pedido" class="form-control">
+	</div>
+	
+	<div class="form-group">
+		<label>Subtotal</label>
+		<input type="number" name="subtotal_pedido" class="form-control" >
 	</div>	
 	<div class="form-group">
-		<label>Valor Recebido</label>
-		<input type="number" name="valorrecebido_venda" class="form-control" >
-	</div>	
-	<div class="form-group">
-		<label>Valor Total</label>
-		<input type="number" name="valortotal_venda" class="form-control" >
+		<label>Total Pedido</label>
+		<input type="number" name="total_pedido" class="form-control" >
 	</div>
 	<div class="form-group">
 		<label>Funcionario</label>
@@ -34,8 +37,8 @@
 				print "</tr>";
 				while( $row = $result->fetch_assoc() ){
 					print "<tr>";
-					print "<td>".$row["cod_fun"]."</td>";
-					print "<td>".$row["nome_fun"]."</td>";
+					print "<td>".$row["codigo_funcionario"]."</td>";
+					print "<td>".$row["nome_funcionario"]."</td>";
 					print "</tr>";
 				}
 				print "</table>";
@@ -43,7 +46,7 @@
 				print "Não encontrou resultados";
 			}
 		?>
-		<input type="number" name="funcionario_cod_fun" class="form-control" >
+		<input type="number" name="funcionario_codigo_funcionario" class="form-control" >
 	</div>
 	
 	
@@ -66,8 +69,8 @@
 				print "</tr>";
 				while( $row = $result->fetch_assoc() ){
 					print "<tr>";
-					print "<td>".$row["cod_cli"]."</td>";
-					print "<td>".$row["nome_cli"]."</td>";
+					print "<td>".$row["codigo_cliente"]."</td>";
+					print "<td>".$row["nome_cliente"]."</td>";
 					print "</tr>";
 				}
 				print "</table>";
@@ -75,12 +78,12 @@
 				print "Não encontrou resultados";
 			}
 		?>
-		<input type="number" name="cliente_cod_cli" class="form-control" >
+		<input type="number" name="cliente_codigo_cliente" class="form-control" >
 	</div>
 	<div class="form-group">
-		<label>Blikes</label>
+		<label>Produtos</label>
 		<?php
-			$sql = "SELECT * FROM bikes";
+			$sql = "SELECT * FROM produto";
 	
 			$result = $conn->query($sql);
 			
@@ -91,12 +94,14 @@
 				print "<table class='table table-bordered table-striped table-hover'>";
 				print "<tr>";
 				print "<th>Codigo</th>";
-				print "<th>Modelo Bike</th>";
+				print "<th>Nome</th>";
+				print "<th>Modelo Produto</th>";
 				print "</tr>";
 				while( $row = $result->fetch_assoc() ){
 					print "<tr>";
-					print "<td>".$row["cod_bike"]."</td>";
-					print "<td>".$row["modelo_bike"]."</td>";
+					print "<td>".$row["codigo_produto"]."</td>";
+					print "<td>".$row["nome_produto"]."</td>";
+					print "<td>".$row["descricao_produto"]."</td>";
 					print "</tr>";
 				}
 				print "</table>";
@@ -104,7 +109,7 @@
 				print "Não encontrou resultados";
 			}
 		?>
-		<input type="number" name="bikes_cod_bike" class="form-control" >
+		<input type="number" name="produto_codigo_produto" class="form-control" >
 	</div>
 	<div class="form-group">
 		<button type="submit" class="btn btn-primary">Salvar</button>
